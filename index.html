@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"> <!-- 声明文档的字符集 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- 设置网页视口的元数据标签 -->
+    <title>NeRF</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet"> <!-- 表示被链接的文件是一个样式表文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+  </head>
+
+  <!-- cover -->
+  <section>
+    <!-- 内容划分元素 -->
+    <div class="jumbotron text-center mt-0"> <!--jumbotron类可用于创建具有特殊样式的大型容器，text-center类用于居中文本，而mt-0类用于删除顶部的外边距-->
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <h2> MC-NeRF </h2>
+            <h2> Neural Radiance Fields </h2>
+            <h4 style="color:#5a6268;">TVCG 2023</h4>
+            <hr>
+            <h6> 
+                <a target="_blank">Yu Gao</a><sup>1</sup>,
+                <a target="_blank">Lutong Su</a><sup>1</sup>, 
+                <a target="_blank">Hao Liang</a><sup>1</sup>, 
+                <a target="_blank">Yufeng Yue</a><sup>1</sup>, 
+                <a target="_blank">Yi Yang</a><sup>1†</sup>, 
+                <a target="_blank">Mengyin Fu</a><sup>1</sup>
+            <p>
+                <sup>1</sup>Beijing Institute of Technology &nbsp;&nbsp; 
+                <sup>†</sup>Corresponding Author &nbsp;&nbsp; 
+              </p>
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://openaccess.thecvf.com/content/CVPR2023/papers/Chen_Local-to-Global_Registration_for_Bundle-Adjusting_Neural_Radiance_Fields_CVPR_2023_paper.pdf" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Paper</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/rover-xingyu/L2G-NeRF" role="button"  target="_blank">
+                    <i class="fa fa-github-alt"></i> Code</a> </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+              <!--<img class="img-fluid" src="images/L2G-NeRF.jpg">-->
+              <!-- <br><br> -->
+          <p class="text-justify">  1111111</p>
+          <p class="text-justify"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Overview video</h3>
+            <hr style="margin-top:0px">
+            <!--<div class="embed-responsive embed-responsive-16by9">-->
+                <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/jUkfatSaJtA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
+                <!--<iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/y8XP9Umt6Mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              </div>-->
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- Neural Image Alignment (2D) -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Multi-Camera Intrinsic Parameters Regression</h3>
+            <hr style="margin-top:0px">
+      
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- NeRF (3D): Synthetic Objects -->
+  <section>
+    <div class="container">
+      <div>
+        <div class="row">
+          <div class="col-12 text-center">
+              <h3>Multi-Camera Extrinsic Parameters Regression</h3>
+              <hr style="margin-top:0px">
+              <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Random pose initialization</h4>
+              <h5 style="margin-top:10px; margin-bottom:10px; color:#1183e7">L2G-NeRF</h5>
+              <ul>
+                <li>
+                  <img class="img-fluid" src="image/HalfBall_Style_L2G2.gif">
+                </li>
+                <li>
+                  <img class="img-fluid" src="image/Ball_Style_L2G2.gif">
+                </li>
+                <li>
+                  <img class="img-fluid" src="image/Room_Style_L2G2.gif">
+                </li>
+                <li>
+                  <img class="img-fluid" src="image/Array_Style_L2G2.gif">
+                </li>
+              </ul>
+              <table class="caption" style="width: 100%;">
+                <tr>
+                    <td style="width: 25%">Ball_Style_L2G</td>
+                    <td style="width: 25%">HalfBall_Style_L2G</td>
+                    <td style="width: 25%">Room_Style_L2G</td>
+                    <td style="width: 25%">Array_Style_L2G</td>
+                </tr>
+              </table>
+              <h5 style="margin-top:10px; margin-bottom:10px; color:#1183e7">barf</h5>
+              <ul>
+                <li>
+                  <img class="img-fluid" src="image/HalfBall_Style_BARF2.gif">
+                </li>
+                <li>
+                  <img class="img-fluid" src="image/Ball_Style_BARF2.gif">
+                </li>
+                <li>
+                  <img class="img-fluid" src="image/Room_Style_BARF2.gif">
+                </li>
+                <li>
+                  <img class="img-fluid" src="image/Array_Style_BARF2.gif">
+                </li>
+              </ul>
+              <table class="caption" style="width: 100%;">
+                <tr>
+                    <td style="width: 25%">Ball_Style_BARF</td>
+                    <td style="width: 25%">HalfBall_Style_BARF</td>
+                    <td style="width: 25%">Room_Style_BARF</td>
+                    <td style="width: 25%">Array_Style_BARF</td>
+                </tr>
+              </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- NeRF (3D): Real-World Scenes -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>NeRF (3D): Real-World Scenes</h3>
+            <hr style="margin-top:0px">
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Random pose initialization</h4>
+              <h5 style="margin-top:10px; margin-bottom:10px; color:#1183e7">L2G-NeRF</h5>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/BARF2.mp4" type="video/mp4">
+                  </video>
+              </li>
+              <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/L2G2.mp4" type="video/mp4">
+                  </video>
+              </li>
+              <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/mc2.mp4" type="video/mp4">
+                  </video>
+              </li>
+              <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/gt2.mp4" type="video/mp4">
+                  </video>
+              </li>
+              </ul>
+              <table class="caption" style="width: 100%;">
+                <tr>
+                    <td style="width: 25%">BARF</td>
+                    <td style="width: 25%">L2G-NeRF</td>
+                    <td style="width: 25%">MC-NeRF(ours)</td>
+                    <td style="width: 25%">Ground_truth</td>
+                </tr>
+              </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- citing -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@inproceedings{chen2023local,
+  title={Local-to-global registration for bundle-adjusting neural radiance fields},
+  author={Chen, Yue and Chen, Xingyu and Wang, Xuan and Zhang, Qi and Guo, Yu and Shan, Ying and Wang, Fei},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={8264--8273},
+  year={2023}
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+  </footer>
+
+</body>
+</html>
