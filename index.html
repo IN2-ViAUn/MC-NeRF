@@ -19,7 +19,7 @@
           <div class="col-12">
             <h2> MC-NeRF: Muti-Camera Neural Radiance Fields for</h2>
             <h2> Muti-Camera Image Acquisition Systems </h2>
-            <h4 style="color:#5a6268;">Current state: Continue Updating(last time:2023.09.15)</h4>
+            <h4 style="color:#5a6268;">Current state: Continue Updating(last time:2023.09.16)</h4>
             <hr>
             <h6> 
                 <a target="_blank">Yu Gao</a><sup>1</sup>,
@@ -58,7 +58,7 @@
               <!--<img class="img-fluid" src="images/L2G-NeRF.jpg">-->
               <!-- <br><br> -->
           <p class="text-justify">  Neural Radiance Fields (NeRF) employ multi-view images for 3D scene representation and have shown remarkable performance. As one of the primary sources of multi-view images, multi-camera systems encounter challenges such as varying intrinsic parameters and frequent pose changes.
-Most previous NeRF-based methods often assume a global unique camera and seldom consider scenarios with multiple cameras. Besides, some pose-robust methods still remain susceptible to suboptimal solutions when poses are poor initialized. In this paper, we propose MC-NeRF, a method can jointly optimize both intrinsic and extrinsic parameters for bundle-adjusting Neural Radiance Fields. Firstly, we conduct a theoretical analysis to tackle the degenerate case and coupling issue that arise from the joint optimization between intrinsic and extrinsic parameters. Secondly, based on the proposed solutions, we introduce an efficient calibration image acquisition scheme for multi-camera systems, including the design of calibration object. Lastly, we present a global end-to-end network with training sequence that enables the regression of intrinsic and extrinsic parameters, along with the rendering network. Moreover, most existing datasets are designed for unique camera, we create a new dataset that includes four different styles of multi-camera acquisition systems, allowing readers to generate custom datasets. Experiments confirm the effectiveness of our method when each image corresponds to different camera parameters. Specifically, we adopt up to 110 images with 110 different intrinsic and extrinsic parameters, to achieve 3D scene representation without providing initial poses.</p>
+            Most previous NeRF-based methods often assume a global unique camera and seldom consider scenarios with multiple cameras. Besides, some pose-robust methods still remain susceptible to suboptimal solutions when poses are poor initialized. In this paper, we propose MC-NeRF, a method can jointly optimize both intrinsic and extrinsic parameters for bundle-adjusting Neural Radiance Fields. Firstly, we conduct a theoretical analysis to tackle the degenerate case and coupling issue that arise from the joint optimization between intrinsic and extrinsic parameters. Secondly, based on the proposed solutions, we introduce an efficient calibration image acquisition scheme for multi-camera systems, including the design of calibration object. Lastly, we present a global end-to-end network with training sequence that enables the regression of intrinsic and extrinsic parameters, along with the rendering network. Moreover, most existing datasets are designed for unique camera, we create a new dataset that includes four different styles of multi-camera acquisition systems, allowing readers to generate custom datasets. Experiments confirm the effectiveness of our method when each image corresponds to different camera parameters. Specifically, we adopt up to 110 images with 110 different intrinsic and extrinsic parameters, to achieve 3D scene representation without providing initial poses.</p>
           <p class="text-justify"></p>
         </div>
       </div>
@@ -66,12 +66,16 @@ Most previous NeRF-based methods often assume a global unique camera and seldom 
   </section>
   <br>
 
+  <!-- Overview -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Overview video</h3>
+            <h3>Overview</h3>
             <hr style="margin-top:0px">
+            <img class="img-fluid" src="image/overview.png">
+            <!-- <br><br> -->
+            <p class="text-justify">Overall branches of proposed framework. 1) The left side  illustrates data acquisition process using a multi-camera system (Room Style). Each camera in the system is fixed in position, and our method requires two packages of calibration images, and one package of the object. 2) The right side displays the loss function branches of the network, consisting of three components. Firstly, it refines the coarse camera intrinsic and extrinsic parameters by utilizing $Pack1$ and $Pack2$. This optimization is executed by the Intrinsic and Extrinsic Reprojection Loss branch. Secondly, with the coarse parameters, the network continues rendering training, incorporating the Photometric Loss branch. This joint optimization can obtain accurate camera parameters and refine the rendering network.</p>
             <!--<div class="embed-responsive embed-responsive-16by9">-->
                 <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/jUkfatSaJtA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
                 <!--<iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/y8XP9Umt6Mw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -82,27 +86,13 @@ Most previous NeRF-based methods often assume a global unique camera and seldom 
   </section>
   <br>
 
-  <!-- Neural Image Alignment (2D) -->
-  <section>
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-center">
-            <h3>Multi-Camera Intrinsic Parameters Regression</h3>
-            <hr style="margin-top:0px">
-      
-        </div>
-      </div>
-    </div>
-  </section>
-  <br>
-
-  <!-- NeRF (3D): Synthetic Objects -->
+  <!-- Exp.3  Extrinsic Parameters Regression -->
   <section>
     <div class="container">
       <div>
         <div class="row">
           <div class="col-12 text-center">
-              <h3>Multi-Camera Extrinsic Parameters Regression</h3>
+              <h3>Exp.3  Extrinsic Parameters Regression</h3>
               <hr style="margin-top:0px">
               <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Random pose initialization</h4>
               <h5 style="margin-top:10px; margin-bottom:10px; color:#1183e7">L2G-NeRF</h5>
@@ -122,8 +112,8 @@ Most previous NeRF-based methods often assume a global unique camera and seldom 
               </ul>
               <table class="caption" style="width: 100%;">
                 <tr>
-                    <td style="width: 25%">Ball_Style_L2G</td>
                     <td style="width: 25%">HalfBall_Style_L2G</td>
+                    <td style="width: 25%">Ball_Style_L2G</td>
                     <td style="width: 25%">Room_Style_L2G</td>
                     <td style="width: 25%">Array_Style_L2G</td>
                 </tr>
@@ -145,8 +135,8 @@ Most previous NeRF-based methods often assume a global unique camera and seldom 
               </ul>
               <table class="caption" style="width: 100%;">
                 <tr>
-                    <td style="width: 25%">Ball_Style_BARF</td>
                     <td style="width: 25%">HalfBall_Style_BARF</td>
+                    <td style="width: 25%">Ball_Style_BARF</td>
                     <td style="width: 25%">Room_Style_BARF</td>
                     <td style="width: 25%">Array_Style_BARF</td>
                 </tr>
@@ -158,43 +148,47 @@ Most previous NeRF-based methods often assume a global unique camera and seldom 
   </section>
   <br>
 
-  <!-- NeRF (3D): Real-World Scenes -->
+  <!-- Exp.4  Planar Image Alignment (2D) -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>NeRF (3D): Real-World Scenes</h3>
+            <h3>Exp.4  Planar Image Alignment (2D)</h3>
             <hr style="margin-top:0px">
-            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Random pose initialization</h4>
-              <h5 style="margin-top:10px; margin-bottom:10px; color:#1183e7">L2G-NeRF</h5>
               <ul>
                 <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/BARF2.mp4" type="video/mp4">
+                    <source src="image/BARF.mp4" type="video/mp4">
                   </video>
               </li>
               <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/L2G2.mp4" type="video/mp4">
+                    <source src="image/L2G.mp4" type="video/mp4">
                   </video>
               </li>
               <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/mc2.mp4" type="video/mp4">
+                    <source src="image/MC.mp4" type="video/mp4">
                   </video>
               </li>
               <li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/WOMC.mp4" type="video/mp4">
+                </video>
+              </li>
+              <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/gt2.mp4" type="video/mp4">
+                    <source src="image/GT.mp4" type="video/mp4">
                   </video>
               </li>
               </ul>
               <table class="caption" style="width: 100%;">
                 <tr>
-                    <td style="width: 25%">BARF</td>
-                    <td style="width: 25%">L2G-NeRF</td>
-                    <td style="width: 25%">MC-NeRF(ours)</td>
-                    <td style="width: 25%">Ground_truth</td>
+                    <td style="width: 20%">BARF</td>
+                    <td style="width: 20%">L2G-NeRF</td>
+                    <td style="width: 20%">MC-NeRF(ours)</td>
+                    <td style="width: 20%">MC-NeRF(w/o)</td>
+                    <td style="width: 20%">Ground_truth</td>
                 </tr>
               </table>
         </div>
@@ -202,6 +196,174 @@ Most previous NeRF-based methods often assume a global unique camera and seldom 
     </div>
   </section>
   <br>
+
+  <!-- Exp.5  Fix Step VS Global optimization -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Exp.5  Fix Step VS Global optimization</h3>
+            <hr style="margin-top:0px">
+            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Ball Style</h4>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao1.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/ball_1_4.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/ball_5_8.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao2.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/Depth/ball_depth_1_4.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/Depth/ball_depth_5_8.mp4" type="video/mp4">
+                  </video>
+              </ul>
+              <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">HalfBall Style</h4>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao1.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/halfball_1_4.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/halfball_5_8.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao2.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/Depth/halfball_depth_1_4.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/Depth/halfball_depth_5_8.mp4" type="video/mp4">
+                  </video>
+              </ul>
+              <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Room Style</h4>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao1.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/room_1_4.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/room_5_8.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao2.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/Depth/room_depth_1_4.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/Depth/room_depth_5_8.mp4" type="video/mp4">
+                  </video>
+              </ul>
+              <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Array Style</h4>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao1.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/array_1_4.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/RGB/array_5_8.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <ul>
+                <li>
+                  <video width="35%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/tubiao2.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/Depth/array_depth_1_4.mp4" type="video/mp4">
+                    </video>
+                </li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/Depth/array_depth_5_8.mp4" type="video/mp4">
+                  </video>
+              </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+  <!-- citing -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@misc{gao2023mcnerf,
+  title={MC-NeRF: Muti-Camera Neural Radiance Fields for Muti-Camera Image Acquisition Systems}, 
+  author={Yu Gao and Lutong Su and Hao Liang and Yufeng Yue and Yi Yang and Mengyin Fu},
+  year={2023},
+  eprint={2309.07846},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center" style="margin-bottom:10px">
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the website template.
+  </footer>
 
 </body>
 </html>
