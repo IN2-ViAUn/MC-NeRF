@@ -400,24 +400,45 @@
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>The variation of the camera's position and field of view</h3>
+            <h3>The variation of the camera's position and field of view(test dataset)</h3>
             <hr style="margin-top:0px">
-            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Ball Style</h4>
-                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/ball.mp4" type="video/mp4">
-                  </video>
-            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">HalfBall Style</h4>
-                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/halfball.mp4" type="video/mp4">
-                  </video>
-            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Room Style</h4>
+            <p class="text-justify">The following motion graphs represent the variations in camera position and field of view in the test set of our dataset and show a total of four styles of camera placement. In each style, the top, right, and front views are shown for camera pose variations and the camera field of view variations are shown in the form of camera focal length variations. The coordinate system at rest in the center of the image represents the world coordinate system, with the blue axis as the z-axis, the red axis as the x-axis, and the green axis as the y-axis; the coordinate system in motion represents the camera coordinate system, with the blue axis as the z-axis, the red axis as the x-axis, and the green axis as the y-axis. The color of the moving sphere and the color of the zoom-pitch camera model change synchronously with the field-of-view angle.</p>
+            <ul>
+              <li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/ball.mp4" type="video/mp4">
+                </video>
+              </li>
+              <li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/halfball.mp4" type="video/mp4">
+                </video>
+              </li>
+            </ul>
+            <table class="caption" style="width: 100%;">
+              <tr>
+                <td style="width: 50%">Ball Style</td>
+                <td style="width: 50%">HalfBall Style</td>
+              </tr>
+              </table>
+              <ul>
+                <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
                     <source src="image/room.mp4" type="video/mp4">
                   </video>
-            <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Array Style</h4>
+                </li>
+                <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
                     <source src="image/array.mp4" type="video/mp4">
                   </video>
+                </li>
+              </ul>   
+              <table class="caption" style="width: 100%;">
+                <tr>
+                  <td style="width: 50%">Room Style</td>
+                  <td style="width: 50%">Array Style</td>
+                </tr>
+                </table>   
         </div>
       </div>
     </div>
