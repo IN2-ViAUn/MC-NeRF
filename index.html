@@ -17,9 +17,9 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <h2> MC-NeRF: Multi-Camera Neural Radiance Fields for</h2>
-            <h2> Multi-Camera Image Acquisition Systems </h2>
-            <h4 style="color:#5a6268;">Current state: Continue Updating(last time:2024.3.18)</h4>
+            <h2> MC-NeRF: Muti-Camera Neural Radiance Fields for</h2>
+            <h2> Muti-Camera Image Acquisition Systems </h2>
+            <h4 style="color:#5a6268;">Current state: Continue Updating(last time:2024.11.06)</h4>
             <hr>
             <h6> 
                 <a target="_blank">Yu Gao</a><sup>1</sup>,
@@ -42,7 +42,7 @@
                     <i class="fa fa-github-alt"></i> Code</a> </p>
               </div>
               <div class="column">
-                <p class="mb-5"><a class="btn btn-large btn-light" href="https://drive.google.com/drive/folders/16cdEC9WmDmiAp3oPmVwwhl_is6qUDh0K" role="button"  target="_blank">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://drive.google.com/drive/my-drive" role="button"  target="_blank">
                   <i class="fa fa-database"></i> Dataset</a> </p>
             </div>
             </div>
@@ -61,7 +61,8 @@
             <hr style="margin-top:0px">
               <!--<img class="img-fluid" src="images/L2G-NeRF.jpg">-->
               <!-- <br><br> -->
-          <p class="text-justify">  Neural Radiance Fields (NeRF) use multi-view images for 3D scene representation, demonstrating remarkable performance. As one of the primary sources of multi-view images, multi-camera systems encounter challenges such as varying intrinsic parameters and frequent pose changes. Most previous NeRF-based methods assume a unique camera and rarely consider multi-camera scenarios. Besides, some NeRF methods that can optimize intrinsic and extrinsic parameters still remain susceptible to suboptimal solutions when these parameters are poor initialized. In this paper, we propose MC-NeRF, a method that enables joint optimization of both intrinsic and extrinsic parameters alongside NeRF. The method also supports each image corresponding to independent camera parameters. First, we tackle coupling issue and the degenerate case that arise from the joint optimization between intrinsic and extrinsic parameters. Second, based on the proposed solutions, we introduce an efficient calibration image acquisition scheme for multi-camera systems, including the design of calibration object. Finally, we present an end-to-end network with training sequence that enables the estimation of intrinsic and extrinsic parameters, along with the rendering network. Furthermore, recognizing that most existing datasets are designed for a unique camera, we construct a real multi-camera image acquisition system and create a corresponding new dataset, which includes both simulated data and real-world captured images. Experiments confirm the effectiveness of our method when each image corresponds to different camera parameters. Specifically, we use  multi-cameras, each with different intrinsic and extrinsic parameters in real-world system, to achieve 3D scene representation without providing initial poses.</p>
+          <p class="text-justify">  Neural Radiance Fields (NeRF) employ multi-view images for 3D scene representation and have shown remarkable performance. As one of the primary sources of multi-view images, multi-camera systems encounter challenges such as varying intrinsic parameters and frequent pose changes.
+            Most previous NeRF-based methods often assume a global unique camera and seldom consider scenarios with multiple cameras. Besides, some pose-robust methods still remain susceptible to suboptimal solutions when poses are poor initialized. In this paper, we propose MC-NeRF, a method can jointly optimize both intrinsic and extrinsic parameters for bundle-adjusting Neural Radiance Fields. Firstly, we conduct a theoretical analysis to tackle the degenerate case and coupling issue that arise from the joint optimization between intrinsic and extrinsic parameters. Secondly, based on the proposed solutions, we introduce an efficient calibration image acquisition scheme for multi-camera systems, including the design of calibration object. Lastly, we present a global end-to-end network with training sequence that enables the regression of intrinsic and extrinsic parameters, along with the rendering network. Moreover, most existing datasets are designed for unique camera, we create a new dataset that includes four different styles of multi-camera acquisition systems, allowing readers to generate custom datasets. Experiments confirm the effectiveness of our method when each image corresponds to different camera parameters. Specifically, we adopt up to 110 images with 110 different intrinsic and extrinsic parameters, to achieve 3D scene representation without providing initial poses.</p>
           <p class="text-justify"></p>
         </div>
       </div>
@@ -89,13 +90,62 @@
   </section>
   <br>
 
-  <!-- Exp.3  Extrinsic Parameters Regression -->
+  <!-- Exp.1  2D Alignment for Coupling Issue -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Exp.1  2D Alignment for Coupling Issue</h3>
+            <hr style="margin-top:0px">
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/BARF.mp4" type="video/mp4">
+                  </video>
+              </li>
+              <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/L2G.mp4" type="video/mp4">
+                  </video>
+              </li>
+              <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/MC.mp4" type="video/mp4">
+                  </video>
+              </li>
+              <li>
+                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/WOMC.mp4" type="video/mp4">
+                </video>
+              </li>
+              <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                    <source src="image/GT.mp4" type="video/mp4">
+                  </video>
+              </li>
+              </ul>
+              <table class="caption" style="width: 100%;">
+                <tr>
+                    <td style="width: 20%">BARF</td>
+                    <td style="width: 20%">L2G-NeRF</td>
+                    <td style="width: 20%">MC-NeRF(ours)</td>
+                    <td style="width: 20%">MC-NeRF(w/o)</td>
+                    <td style="width: 20%">Ground_truth</td>
+                </tr>
+              </table>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- Exp.3  Initialization of Extrinsics Estimation -->
   <section>
     <div class="container">
       <div>
         <div class="row">
           <div class="col-12 text-center">
-              <h3>Exp.3  Extrinsic Parameters Regression</h3>
+              <h3>Exp.3  Initialization of Extrinsics Estimation</h3>
               <hr style="margin-top:0px">
               <h4 style="margin-top:20px; margin-bottom:20px; color:#717980">Random pose initialization</h4>
               <h5 style="margin-top:10px; margin-bottom:10px; color:#1183e7">L2G-NeRF</h5>
@@ -151,49 +201,158 @@
   </section>
   <br>
 
-  <!-- Exp.4  Planar Image Alignment (2D) -->
+  <!-- Exp.4  Comparison with Other methods -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Exp.4  Planar Image Alignment (2D)</h3>
+            <h3>Exp.4  Comparison with Other methods</h3>
             <hr style="margin-top:0px">
+            <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">Instant-Splat</h6>
               <ul>
                 <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/BARF.mp4" type="video/mp4">
+                  <source src="image/real/ISPLAT/lab11.mp4" type="video/mp4">
                   </video>
-              </li>
-              <li>
+                </li>
+                <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/L2G.mp4" type="video/mp4">
+                  <source src="image/real/ISPLAT/lab22.mp4" type="video/mp4">
                   </video>
-              </li>
-              <li>
+                </li>
+                <li>
                   <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/MC.mp4" type="video/mp4">
+                  <source src="image/real/ISPLAT/lab33.mp4" type="video/mp4">
                   </video>
-              </li>
-              <li>
-                <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                  <source src="image/WOMC.mp4" type="video/mp4">
-                </video>
-              </li>
-              <li>
-                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
-                    <source src="image/GT.mp4" type="video/mp4">
-                  </video>
-              </li>
+                </li>
               </ul>
-              <table class="caption" style="width: 100%;">
-                <tr>
-                    <td style="width: 20%">BARF</td>
-                    <td style="width: 20%">L2G-NeRF</td>
-                    <td style="width: 20%">MC-NeRF(ours)</td>
-                    <td style="width: 20%">MC-NeRF(w/o)</td>
-                    <td style="width: 20%">Ground_truth</td>
-                </tr>
-              </table>
+              <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">Camp</h6>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/Camp/lab11.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/Camp/lab22.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/Camp/lab33.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">NeRFacto</h6>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/NeRFacto/lab11.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/NeRFacto/lab22.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/NeRFacto/lab33.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">BARF</h6>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/BARF/lab11.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/BARF/lab22.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/BARF/lab33.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">SC-NeRF</h6>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/SC/lab11.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/SC/lab22.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/SC/lab33.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">NeRF--</h6>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/nerf--/lab11.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/nerf--/lab22.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/nerf--/lab33.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">Instant-NGP</h6>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/INGP/lab11.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/INGP/lab22.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/INGP/lab33.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+              <h6 style="margin-top:10px; margin-bottom:10px; color:#636464">NeRF</h6>
+              <ul>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/NeRF/lab11.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/NeRF/lab22.mp4" type="video/mp4">
+                  </video>
+                </li>
+                <li>
+                  <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="image/real/NeRF/lab33.mp4" type="video/mp4">
+                  </video>
+                </li>
+              </ul>
+        </div>
         </div>
       </div>
     </div>
@@ -395,7 +554,7 @@
   </section>
   <br>
 
-    <section>
+  <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
@@ -443,7 +602,7 @@
     </div>
   </section>
   <br>
-  
+
   <!-- citing -->
   <div class="container">
     <div class="row ">
@@ -451,13 +610,13 @@
           <h3>Citation</h3>
           <hr style="margin-top:0px">
               <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
-<code>@misc{gao2024mcnerf,
-      title={MC-NeRF: Multi-Camera Neural Radiance Fields for Multi-Camera Image Acquisition Systems}, 
-      author={Yu Gao and Lutong Su and Hao Liang and Yufeng Yue and Yi Yang and Mengyin Fu},
-      year={2024},
-      eprint={2309.07846},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+<code>@misc{gao2023mcnerf,
+  title={MC-NeRF: Muti-Camera Neural Radiance Fields for Muti-Camera Image Acquisition Systems}, 
+  author={Yu Gao and Lutong Su and Hao Liang and Yufeng Yue and Yi Yang and Mengyin Fu},
+  year={2023},
+  eprint={2309.07846},
+  archivePrefix={arXiv},
+  primaryClass={cs.CV}
 }</code></pre>
           <hr>
       </div>
